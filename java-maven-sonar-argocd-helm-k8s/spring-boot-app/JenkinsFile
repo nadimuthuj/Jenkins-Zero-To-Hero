@@ -21,10 +21,14 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app'
-        sh 'ls -ltr'
+        sh '''
+          #!/bin/bash
+          cd java-maven-sonar-argocd-helm-k8s/spring-boot-app
+          ls -ltr
+        '''
+        //sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app'
+        //sh 'ls -ltr'
         sh 'mvn clean package'
-        sh 'echo $PATH'
       }
     }
 //    stage('Static Code Analysis') {
