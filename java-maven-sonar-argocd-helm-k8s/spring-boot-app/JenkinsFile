@@ -25,10 +25,11 @@ pipeline {
           #!/bin/bash
           cd java-maven-sonar-argocd-helm-k8s/spring-boot-app
           ls -ltr
+          mvn clean package
         '''
         //sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app'
         //sh 'ls -ltr'
-        sh 'mvn clean package'
+        //sh 'mvn clean package'
       }
     }
 //    stage('Static Code Analysis') {
