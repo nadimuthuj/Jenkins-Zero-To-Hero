@@ -6,6 +6,10 @@ pipeline {
 //    }
 //  }
   agent any 
+  tools { 
+      maven 'MAVEN_HOME' 
+     // jdk 'JAVA_HOME' 
+    }
   stages {
     stage('Checkout') {
       steps {
@@ -17,8 +21,9 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
-        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
+        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app'
         sh 'mvn clean package'
+        sh 'echo $PATH'
       }
     }
 //    stage('Static Code Analysis') {
